@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"$
+  </head>
+  <body>
+    <form method="POST" action="." id="theform">
+      <textarea name="starttext" form="theform" placeholder="Enter text here"></text$
+      <br>
+
+    <select name="who" form="theform">
+      <option value="einstein">Einstein</option>
+      <option value="feynman">Feynman</option>
+      <option value="washington">Washington</option>
+      <option value="jobs">Steve Jobs</option>
+    </select>
+
+    <input type="submit">
+  </form>
+
+  <script>
+$(document).ready(function(){
+    $("#theform").submit(function(e){
+        e.preventDefault();
+        var form = $(this);
+        var action = form.attr("action");
+        var data = form.serializeArray();
+         $.ajax({
+                    url: this.action,
+                    dataType: 'json',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(getData(data)),
+                    success: function(data){
+                        console.log(data);
+                    },
+                      error: function( jqXhr, textStatus, errorThrown ){
+                        console.log( errorThrown );
+                    }
+        });
+});
+});
+
+function getData(data) {
+   var unindexed_array = data;
+   var indexed_array = {};
+   $.map(unindexed_array, function(n, i) {
+    indexed_array[n['name']] = n['value'];
+   });
+
+   return indexed_array;
+}
+    </script>
+  </body>
+</html>
+
+
+
