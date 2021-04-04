@@ -109,8 +109,11 @@ $(document).ready(function(){
                                                   document.getElementById("loading").style.display = "none";
                                   document.getElementById("subbb").style.display = "inline-block";
 
-
-window.alert(response.replace(/ *\<[^>]*\) */g, ""));
+var utterance  = new SpeechSynthesisUtterance();
+                      
+                      utterance.text = response.replace(/(\<.*?\>)/g, "");
+                      speechSynthesis.speak(utterance);
+window.alert(response.replace(/(\<.*?\>)/g, ""));
                       
                     },
                     error: function( jqXhr, textStatus, errorThrown ){
