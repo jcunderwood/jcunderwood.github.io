@@ -94,9 +94,7 @@ $(document).ready(function(){
                     dataType: 'json',
                     type: 'POST',
                     contentType: 'application/json',
-                    data: JSON.stringify({
-                          "starttext": document.getElementById("tetext").innerHTML
-                    }),
+                    data: $(this).serialize(),
                     success: function(hi){
                         console.log(hi);
                     },
