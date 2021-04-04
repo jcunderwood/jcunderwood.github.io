@@ -4,8 +4,16 @@
 <html lang="en-US" dir="ltr">
 
   <head>
-        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>       
+    <script src="progresslibrary.js"></script>
 
+<style>
+  #progress {
+  margin: 20px;
+  width: 600px;
+  height: 16px;
+}
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +77,11 @@
 <br>
     <input type="submit" name="Generate text" value="Go!"  id="subbb">
   </form>
-             <div id="loading" style="display:none;"> <img src="loading.gif" width="60px" > <p>Pardon the wait! We're running your text through our proprietary machine learning algorithms. Because we are running these models at a high level, your wait may take up to 30 seconds. This short wait represents our commitment to high quality education for all &mdash; afterall, slow and steady wins the race.</p></div>
+             <div id="loading" style="display:none;"> <img src="loading.gif" width="60px" > <p>Pardon the wait! We're running your text through our cutting edge machine learning algorithms. Because we are running these models at a high level, your wait may take up to 30 seconds. This short wait represents our commitment to high quality education for all &mdash; afterall, slow and steady wins the race.</p>
+              
+              
+              <div id="progress"></div>
+              </div>
     </div>
           </div>
    </div>
@@ -95,6 +107,19 @@ $(document).ready(function(){
       document.getElementById("loading").style.display = "inline-block";
             document.getElementById("subbb").style.display = "none";
 
+      
+      var bar = new ProgressBar.Line('#progress', {
+  strokeWidth: 4,
+  easing: 'easeInOut',
+  duration: 45000,
+  color: '#FFEA82',
+  trailColor: '#eee',
+  trailWidth: 1,
+  svgStyle: {width: '100%', height: '100%'}
+});
+
+bar.animate(1.0); 
+      
         var form = $(this);
         var action = form.attr("action");
         var data = form.serializeArray();
