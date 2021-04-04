@@ -97,9 +97,8 @@ $(document).ready(function(){
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(getFormData(data)),
-                    success: function(d){
-                        console.log("DATA POSTED SUCCESSFULLY"+data);
-                      console.log(d);
+                    success: function(response){
+window.alert(response);
                     },
                     error: function( jqXhr, textStatus, errorThrown ){
                         console.log( errorThrown );
