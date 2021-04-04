@@ -69,7 +69,7 @@
 <br>
     <input type="submit" name="Generate text" value="Go!">
   </form>
-              <img style="display:none;" src="loading.gif" width="60px" id='loading'>
+             <div id="loading"> <img style="display:none;" src="loading.gif" width="60px" > <p>Pardon the wait! We're running your text through our advanced machine learning algorithms.</p></div>
     </div>
           </div>
    </div>
@@ -104,10 +104,15 @@ $(document).ready(function(){
                     contentType: 'application/json',
                     data: JSON.stringify(getFormData(data)),
                     success: function(response){
+                                                  document.getElementById("loading").style.display = "none";
+
 window.alert(response);
+                      
                     },
                     error: function( jqXhr, textStatus, errorThrown ){
                         console.log( errorThrown );
+                            document.getElementById("loading").style.display = "none";
+
                     }
         });
 });
