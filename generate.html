@@ -95,10 +95,11 @@ $(document).ready(function(){
                     url: "https://jamesunderwood.net/test.php",
                     dataType: 'json',
                     type: 'POST',
+          timeout:0,
                     contentType: 'application/json',
                     data: JSON.stringify(getFormData(data)),
-                    success: function(data){
-                        console.log("DATA POSTED SUCCESSFULLY"+data);
+                    success: function(response){
+window.alert(response);
                     },
                     error: function( jqXhr, textStatus, errorThrown ){
                         console.log( errorThrown );
