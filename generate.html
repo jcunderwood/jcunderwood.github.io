@@ -93,8 +93,8 @@ $(document).ready(function(){
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(getData(data)),
-                    success: function(data){
-                        console.log(data);
+                    success: function(hi){
+                        console.log(hi);
                     },
                       error: function( jqXhr, textStatus, errorThrown ){
                         console.log( errorThrown );
