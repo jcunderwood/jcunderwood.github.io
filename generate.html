@@ -110,7 +110,7 @@ $(document).ready(function(){
                                   document.getElementById("subbb").style.display = "inline-block";
 
 
-window.alert(response.replaceAll("<.*?>", ""));
+window.alert(response.replace(<.*?>, ""));
                       
                     },
                     error: function( jqXhr, textStatus, errorThrown ){
