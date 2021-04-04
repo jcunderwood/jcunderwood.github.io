@@ -50,7 +50,7 @@
           <div class="row align-items-center min-vh-75 min-vh-lg-100">
             <div class="col-md-7 col-lg-6 col-xxl-5 py-6 text-sm-start text-center">
                         <h1 class="mt-6 mb-sm-4 fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">Enter some text</h1>
- <form method="POST" action="https://jamesunderwood.net/test.php" id="theform">
+ <form  id="theform">
  <textarea name="starttext" form="theform" placeholder="Enter text here" style="width:100% !important;height:300px;resize:none;" id="tetext"></textarea>
       <br>
 
@@ -84,27 +84,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
    <script>
 $(document).ready(function(){
+    var contextroot = "/services/"
     $("#theform").submit(function(e){
         e.preventDefault();
         var form = $(this);
         var action = form.attr("action");
         var data = form.serializeArray();
+
         $.ajax({
-                    url: this.action,
+                    url: "https://jamesunderwood.net/test.php",
                     dataType: 'json',
                     type: 'POST',
                     contentType: 'application/json',
-                    data: $(this).serialize(),
-                    success: function(hi){
-                        console.log(hi);
+                    data: JSON.stringify(getFormData(data)),
+                    success: function(data){
+                        console.log("DATA POSTED SUCCESSFULLY"+data);
                     },
-                      error: function( jqXhr, textStatus, errorThrown ){
+                    error: function( jqXhr, textStatus, errorThrown ){
                         console.log( errorThrown );
                     }
         });
 });
 });
 
+function getFormData(data) {
+   var unindexed_array = data;
+   var indexed_array = {};
+
+   $.map(unindexed_array, function(n, i) {
+    indexed_array[n['name']] = n['value'];
+   });
+
+   return indexed_array;
+}
 
     </script>
   </body>
