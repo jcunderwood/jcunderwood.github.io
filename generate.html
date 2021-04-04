@@ -56,11 +56,13 @@
 
     <select name="who" form="theform">
             <option value="feynman">Richard Feynman</option>
+      <option value="" disabled>Martin Luther King Jr. (coming soon)</option>
+      <option value="" disabled>Jane Goodall (coming soon)</option>
+      <option value="" disabled>Malala Yousafzai (coming soon)</option>
+      <option value="" disabled>Albert Einstein (coming soon)</option>
+      <option value="" disabled>Steve Jobs (coming soon)</option>
+            <option value="" disabled>Anne Frank (coming soon)</option>
 
-      <option value="einstein" disabled>Albert Einstein (coming soon)</option>
-
-      <option value="washington" disabled>George Washington (coming soon)</option>
-      <option value="jobs" disabled>Steve Jobs (coming soon)</option>
     </select>
 <br>
     <input type="submit" name="Generate text">
@@ -93,7 +95,6 @@ $(document).ready(function(){
 
         $.ajax({
                     url: "https://jamesunderwood.net/test.php",
-                    dataType: 'json',
                     type: 'POST',
           timeout:0,
                     contentType: 'application/json',
