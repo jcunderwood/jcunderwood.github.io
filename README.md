@@ -1,4 +1,4 @@
-# ShouldersOfGiants
+# [ShouldersOfGiants](thegiants.tech)
 
 Shoulders of Giants is a progressive web application that uses AI to democratizes education by allowing anyone to question and converse with historical figures.
 
