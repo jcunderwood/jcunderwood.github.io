@@ -69,6 +69,7 @@
 <br>
     <input type="submit" name="Generate text" value="Go!">
   </form>
+              <img style="display:none;" src="loading.gif" width="60px" id='loading'>
     </div>
           </div>
    </div>
@@ -91,6 +92,7 @@ $(document).ready(function(){
     var contextroot = "/services/"
     $("#theform").submit(function(e){
         e.preventDefault();
+      document.getElementById("loading").style.display = "inline-block";
         var form = $(this);
         var action = form.attr("action");
         var data = form.serializeArray();
