@@ -67,9 +67,9 @@
 
     </select>
 <br>
-    <input type="submit" name="Generate text" value="Go!"  style="display:none;">
+    <input type="submit" name="Generate text" value="Go!"  id="subbb">
   </form>
-             <div id="loading"> <img src="loading.gif" width="60px" > <p>Pardon the wait! We're running your text through our advanced machine learning algorithms.</p></div>
+             <div id="loading" style="display:none;"> <img src="loading.gif" width="60px" > <p>Pardon the wait! We're running your text through our advanced machine learning algorithms.</p></div>
     </div>
           </div>
    </div>
@@ -93,6 +93,8 @@ $(document).ready(function(){
     $("#theform").submit(function(e){
         e.preventDefault();
       document.getElementById("loading").style.display = "inline-block";
+            document.getElementById("subbb").style.display = "none";
+
         var form = $(this);
         var action = form.attr("action");
         var data = form.serializeArray();
@@ -105,6 +107,8 @@ $(document).ready(function(){
                     data: JSON.stringify(getFormData(data)),
                     success: function(response){
                                                   document.getElementById("loading").style.display = "none";
+                                  document.getElementById("subbb").style.display = "inline-block";
+
 
 window.alert(response);
                       
